@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Adams Youth Basketball</title>
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script>
+            document.createElement("article");
+            document.createElement("aside");
+            document.createElement("footer");
+            document.createElement("header");
+            document.createElement("main");
+            document.createElement("nav");
+            document.createElement("section");
+        </script>  
+    <![endif]-->
+</head>
+
+<body>
+    <header class="banner">
+        <a href="/">
+            <img alt="logo" src="/image/logo.png">
+         </a>   
+         <ul id="Login">
+        <%if(!user) {%>
+            <li><a href='/users/new'>Sign Up</a></li>
+            <li><a href='/users/login'>Login</a></li>
+        <%} else {%>
+            <p>Welcome, <%=firstName%></p>
+            <li><a href="/connection/new">Start a new connection</a></li>
+            <li><a href='/users/profile'>Profile</a></li>
+            <li><a href='/users/logout'>Logout</a></li>
+        <%}%>
+        </ul>   
+    </header>
+    
+    <nav>
+        <ul id="gnav">
+            <li><a href="/connection">Connections</a></li>
+        </ul>
+    </nav>
+
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+                    <% if(successMessages.length > 0) {%>
+    
+                        <% successMessages.forEach(message=>{%>
+                            <div class='success'>
+                                <%=message%>
+                            </div>
+                            <%});%>
+                                <%}%>

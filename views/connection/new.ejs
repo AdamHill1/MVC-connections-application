@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs')%>
+    
+    <main>
+        <form action = '/connection' method = 'POST'>
+            <ul id="formUL">
+             <li>
+               <label for="ftopic">Topic</label>
+               <input type="text" id="ftopic" name="topic" required>
+             </li>
+             <li>
+               <label for="ftitle">Title</label>
+               <input type="text" id="ftitle" name="title" required>
+             </li>
+             <li>
+                <label for="fdetails">Details</label>
+                <input type="text" id="fdetails" name="details" required minlength="10">
+              </li>
+              <li>
+                <label for="flocation">Location</label>
+                <input type="text" id="flocation" name="location" required>
+              </li>
+              <li>
+                <label for="fwhen">When</label>
+                <input type="date" id="fwhen" name="date" required>
+              </li>
+              <li>
+                <label for="fstart">Start</label>
+                <input type="time" id="fstart" name="startM" required>
+              </li>
+              <li>
+                <label for="fend">End</label>
+                <input type="time" id="fend" name="endM" required>
+              </li>
+              <li>
+                <label for="feimage">Image URL</label>
+                <input type="text" id="feimage" name="image" required>
+              </li>
+              <li class="button">
+                <button type="submit">Create Connection</button>
+              </li>
+            </ul>
+           </form>
+          </main>
+
+           <%- include('../partials/footer.ejs')%>

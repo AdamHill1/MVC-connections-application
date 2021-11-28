@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs')%>
+    
+    <main>
+        <div class = "content">
+
+            <%
+            let alltopics = [];
+            if(connections.length){
+                connections.forEach(sports=>{
+                    if(alltopics.length == 0){
+                    alltopics.push(sports.topic);
+                    }
+                    else if(!(alltopics.includes(sports.topic))){
+                        alltopics.push(sports.topic);
+                    }
+
+
+                 });
+                 alltopics.forEach(topic=>{%>
+                     <h2><%= topic%></h2>
+                     <% 
+                     connections.forEach(sports=>{
+                        if(topic == sports.topic){
+                        %>
+                       <a href = "/connection/<%= sports.id%>"><p><%= sports.title%></p></a>
+                   <%} });
+                 })
+
+            } else {%>
+                <p>There are no connections to display.</p>
+            <%}%>
+        </div>
+
+    </main>
+
+    <%- include('../partials/footer.ejs')%>

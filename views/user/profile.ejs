@@ -1,0 +1,14 @@
+
+<%- include('../partials/header.ejs')%>
+<div class = "content">
+    <h2>Welcome, <%=user.firstName%></h2>
+    <%if(sports.length) {%>
+        <p>You have created the following sports</p>
+        <%sports.forEach(sports => {%>
+            <a href = '/connection/<%=sports.id%>'><p><%=sports.title%></p></a>
+        <%});
+    } else{%>
+        <p>You have not created any sports</p>
+    <%}%>
+    </div>
+    <%- include('../partials/footer.ejs')%>

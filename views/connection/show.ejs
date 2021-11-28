@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs')%>
+    
+    <main id="con">
+        <h3><%= sports.title%></h3>
+        <%if(user == sports.host._id) {%>
+        <form id="conbut">
+            <button type = "submit" formmethod="GET" formaction="/connection/<%= sports.id%>/edit">Edit</button>
+            <button type = "submit" formmethod="POST" formaction="/connection/<%= sports.id%>?_method=DELETE">Delete</button>
+        </form>
+        <%}%>
+        <img alt="conImg" src="<%= sports.image%>" id="conImg">
+        <p id="host"><%= sports.host.firstName + ' ' + sports.host.lastName%></p>
+        <p id="date"><%= sports.date%></p>
+        <p id="time"><%= sports.startTime%> - <%= sports.endTime%></p>
+        <p id="location"><%= sports.location%></p>
+        <h3><br><br>Details</h3>
+        <p id="details"><%= sports.details%></p>
+        
+            
+
+
+    </main>
+
+    <%- include('../partials/footer.ejs')%>
+

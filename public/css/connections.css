@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+article, aside, footer, header, main, nav, section{
+    display: block;
+}
+html, body, h1, h2, h3, ul, li, a, p, article, aside, footer, header, main, nav, section{
+    padding: 0;
+    margin: 0;
+}
+a img{
+
+    width: 7%;
+    height: auto;
+}
+.banner {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px 20px;
+}
+#Login{
+    align-content: left;
+    padding: 5px;
+    display: inline;
+    float: right;
+}
+
+header ul{
+    float: right;
+    margin-top: 32px;
+}
+
+.banner li a{
+    color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 20px;
+    font-variant: small-caps;
+    font-weight: bold;
+
+}
+
+nav {
+    background-color: cornflowerblue;
+    margin-top: 1px;
+    padding: 5px;
+}
+
+#gnav li a{
+    color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 20px;
+    font-variant: small-caps;
+    font-weight: bold;
+
+}
+
+
+#gnav li {
+    display: inline;
+}
+
+#Login li {
+    display: inline;
+}
+
+body{
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 100%;
+}
+main{
+    font-size: 20px;
+    padding: 80px 150px;
+}
+
+footer{
+    background-color: cornflowerblue;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer ul{
+    padding: 3px;
+    width: 600px;
+    margin: 0px;
+}
+
+footer p{
+    text-align: right;
+}
+
+#boyLinks{
+    list-style: none;
+}
+
+#boyLinks li a{
+    text-decoration: none;
+    color: black; 
+}
+
+#boyLinks li a:link {
+    text-decoration: none;
+  }
+  
+#boyLinks li a:visited {
+    text-decoration: none;
+}
+  
+#boyLinks li a:hover {
+    text-decoration: underline;
+}
+  
+#boyLinks li a:active {
+    text-decoration: underline;
+}
+
+#girlLinks{
+    list-style: none;
+}
+
+#girlLinks li a{
+    text-decoration: none;
+    color: black; 
+}
+
+#girlLinks li a:link {
+    text-decoration: none;
+  }
+  
+#girlLinks li a:visited {
+    text-decoration: none;
+}
+  
+#girlLinks li a:hover {
+    text-decoration: underline;
+}
+  
+#girlLinks li a:active {
+    text-decoration: underline;
+}
+
+
