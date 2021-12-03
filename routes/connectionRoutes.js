@@ -1,6 +1,6 @@
 const express = require('express');
 const controller = require('../controllers/connectionController');
-const {isLoggedIn, isAuthor} = require('../middlewares/auth');
+const {isLoggedIn, isAuthor, isNotAuthor} = require('../middlewares/auth');
 const {validateId} = require('../middlewares/validator');
 
 const router = express.Router();
@@ -32,5 +32,9 @@ router.put('/:id', isLoggedIn, validateId, isAuthor, controller.update);
 //DELETE /connection/:id, delete the story idnetified by id
 
 router.delete('/:id', isLoggedIn, validateId, isAuthor, controller.delete);
+
+router.post('/:id/rsvp', validateId, isLoggedIn, isNotAuthor, controller.editRsvp);
+
+router.delete('/:id/rsvp', validateId, isLoggedIn, controller.deleteRsvp);
 
 module.exports = router;

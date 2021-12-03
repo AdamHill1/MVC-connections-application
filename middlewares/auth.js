@@ -38,3 +38,20 @@ exports.isAuthor = (req, res, next) =>{
     })
     .catch(err=>next(err));
 };
+
+exports.isNotAuthor = (req, res, next) =>{
+    let id = req.params.id;
+    sports.findById(id)
+    .then(sports=>{
+        if(sports) {
+            if(sports.host != req.session.user){
+                return next();
+            } else{
+                let err = new Error('Unathorized to access the resource');
+                err.status = 401;
+                return next(err);
+            }
+        }
+    })
+    .catch(err=>next(err));
+};

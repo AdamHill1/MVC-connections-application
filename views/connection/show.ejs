@@ -1,21 +1,34 @@
 <%- include('../partials/header.ejs')%>
     
-    <main id="con">
+    <main class="con">
+        <div class="details">
         <h3><%= sports.title%></h3>
+            <img alt="conImg" src="<%= sports.image%>" id="conImg">
+            <p id="host"><%= sports.host.firstName + ' ' + sports.host.lastName%></p>
+            <p id="date"><%= sports.date%></p>
+            <p id="time"><%= sports.startTime%> - <%= sports.endTime%></p>
+            <p id="location"><%= sports.location%></p>
+            <h3><br><br>Details</h3>
+            <p><%= sports.details%></p>
+        </div>
+        <div class = "conAction">
         <%if(user == sports.host._id) {%>
         <form id="conbut">
             <button type = "submit" formmethod="GET" formaction="/connection/<%= sports.id%>/edit">Edit</button>
             <button type = "submit" formmethod="POST" formaction="/connection/<%= sports.id%>?_method=DELETE">Delete</button>
         </form>
-        <%}%>
-        <img alt="conImg" src="<%= sports.image%>" id="conImg">
-        <p id="host"><%= sports.host.firstName + ' ' + sports.host.lastName%></p>
-        <p id="date"><%= sports.date%></p>
-        <p id="time"><%= sports.startTime%> - <%= sports.endTime%></p>
-        <p id="location"><%= sports.location%></p>
-        <h3><br><br>Details</h3>
-        <p id="details"><%= sports.details%></p>
-        
+        <%}else if(user && user != sports.host._id){%>
+            <form id="conbut">
+                <h5><%=rsvps%> People are going</h5>
+
+                <h4>Are you going to Attend! RSVP now!</h4>
+                <button type = "submit" formmethod="POST" formaction="/connection/<%= sports.id%>/rsvp" name="rsvp" value="YES">Yes</button>
+                <button type = "submit" formmethod="POST" formaction="/connection/<%= sports.id%>/rsvp" name="rsvp" value="NO">No</button>
+                <button type = "submit" formmethod="POST" formaction="/connection/<%= sports.id%>/rsvp" name="rsvp" value="MAYBE">Maybe</button>
+            </form>
+            <%}%>
+        </div>
+
             
 
 

@@ -1,14 +1,42 @@
 
 <%- include('../partials/header.ejs')%>
-<div class = "content">
-    <h2>Welcome, <%=user.firstName%></h2>
+<div class="content">
+    <h1>Welcome, <%=user.firstName%></h1>
+    <br>
     <%if(sports.length) {%>
-        <p>You have created the following sports</p>
+        <h2>You have created the following sports</h2>
         <%sports.forEach(sports => {%>
             <a href = '/connection/<%=sports.id%>'><p><%=sports.title%></p></a>
         <%});
     } else{%>
         <p>You have not created any sports</p>
     <%}%>
+    <%if(sports.length) {%>
+        <br>
+        <h2>You have RSVP'd to the following connections</h2>
+        <table class="tableP">
+            <thead class="headP">
+                <tr>
+                    <th>Connection Name</th>
+                    <th>RSVP STATUS</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <%rsvps.forEach(rsvp => {%>
+            <tr>
+                <td><%=rsvp.connection.title%></td>
+                <td><%=rsvp.rsvp%></td>
+                <form>
+                    <td><button formmethod="get" formaction='/connection/<%=rsvp.connection._id%>/'>Update</button></td>
+                    <td><button formmethod="post" formaction='/connection/<%=rsvp.connection._id%>/rsvp?_method=DELETE'>Delete</button></td>
+                </form>
+            </tr>
+        <%});
+    }%>
+</table>
     </div>
-    <%- include('../partials/footer.ejs')%>
+    <br>
+
+     
+<%- include('../partials/footer.ejs')%>
