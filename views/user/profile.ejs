@@ -11,7 +11,7 @@
     } else{%>
         <p>You have not created any sports</p>
     <%}%>
-    <%if(sports.length) {%>
+    <%if(rsvps.length) {%>
         <br>
         <h2>You have RSVP'd to the following connections</h2>
         <table class="tableP">
@@ -33,7 +33,9 @@
                 </form>
             </tr>
         <%});
-    }%>
+    } else{%>
+        <p>You have not created any RSVPs</p>
+    <%}%>
 </table>
     </div>
     <br>
