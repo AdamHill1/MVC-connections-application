@@ -1,7 +1,7 @@
 const express = require('express');
 const controller = require('../controllers/connectionController');
 const {isLoggedIn, isAuthor, isNotAuthor} = require('../middlewares/auth');
-const {validateId, validateRsvp, validateResult} = require('../middlewares/validator');
+const {validateId, validateRsvp, validateResult, validateStory} = require('../middlewares/validator');
 
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.get('/new', isLoggedIn, controller.new);
 
 //POST /connection: create a new story
 
-router.post('/', isLoggedIn, controller.create);
+router.post('/', isLoggedIn, validateStory, validateResult, controller.create);
 
 //GET /connection/:id: send details of story identified by id
 
@@ -27,7 +27,7 @@ router.get('/:id/edit', isLoggedIn, validateId, isAuthor, controller.edit);
 
 //PUT /connection/:id: update the story identified by id
 
-router.put('/:id', isLoggedIn, validateId, isAuthor, controller.update);
+router.put('/:id', isLoggedIn, validateId, isAuthor, validateStory, validateResult, controller.update);
 
 //DELETE /connection/:id, delete the story idnetified by id
 
